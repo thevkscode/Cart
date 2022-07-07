@@ -13,8 +13,10 @@ code {
 }
 
 .cart-item {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   margin: 20px 10px;
+  align-items: center;
 }
 
 .cart-item .right-block {
@@ -22,7 +24,7 @@ code {
 }
 
 .cart-item-actions {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .action-icons {
