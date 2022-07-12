@@ -4,6 +4,7 @@ export default class Cart extends React.Component{
         constructor()
     {
         super();
+        //List of CartItems of the Cart
         this.state={
           products:[
           {
@@ -34,6 +35,35 @@ export default class Cart extends React.Component{
           ]
         }
     }
+    //function to increase the quantity of cartItems
+      handleIncreaseEvent=(product)=>{
+      const {products}=this.state
+       console.log("Bdha be")
+        const index=products.indexOf(product)
+        products[index].qty+=1;
+        this.setState(
+          {
+            products:products
+          }
+        )
+            }
+            //function to decrease the quantity of cartItems
+      handleDecreaseQuantity=(product)=>{
+        console.log("ghta bhai")
+        const {products}=this.state
+        const index=products.indexOf(product)
+        if(products[index].qty==0)
+        {
+          return;
+        }
+        else
+        {
+        products[index].qty-=1;
+        }
+        this.setState({
+          products  //same as products:products as name is same
+        })
+      }
     render()
     {
       const {products}=this.state;
@@ -45,6 +75,8 @@ export default class Cart extends React.Component{
            <CartItem 
            product={product}
             key={product.id}
+            onIncreaseQuantity={this.handleIncreaseEvent}
+            onDecreaseQuantity={this.handleDecreaseQuantity}
            />
            )
           })}

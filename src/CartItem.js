@@ -1,49 +1,6 @@
 import React from 'react';
 import "./index.css"
 class CartItem extends React.Component {
-    // constructor()
-    // {
-    //     super();
-    //     this.props={
-    //         price:999,
-    //         title:'Phone',
-    //         qty:1,
-    //         img:''
-    //     }
-    // }
-
- increaseQuantity=()=>{
-        // console.log('this',this.state);
-        
-       console.log('this.props',this.props)
-       //setstate form 1(if prev state  not required use this)
-    //    this.setState({
-    //     qty:this.state.qty+1,
-    //    price:this.state.price=999*(this.state.qty+1)
-
-    //    });
-       //setstate form 2(if prev state required use this)
-       this.setState((prevState)=>{
-            return{
-                qty:prevState.qty+1,
-                price:prevState.price+999
-            }
-
-       });
-
-    }
-    decreaseQuantity=()=>{
-        if(this.state.qty==0)
-        {
-            return;
-        }
-        this.setState((prevState)=>{
-            return{
-                qty:prevState.qty-1,
-                price:prevState.price-999
-            }
-        });
-    }
     render() {
             const {title,qty,price}=this.props.product;
         return (
@@ -61,13 +18,13 @@ class CartItem extends React.Component {
                         alt='increase' 
                         className='action-icons'
                          src='https://cdn-icons-png.flaticon.com/512/992/992651.png'
-                         onClick={this.increaseQuantity}
+                         onClick={()=>this.props.onIncreaseQuantity(this.props.product)}
                          />
                         <img 
                         alt='decrease' 
                         className='action-icons' 
                         src='https://cdn-icons-png.flaticon.com/512/992/992683.png'
-                        onClick={this.decreaseQuantity}
+                        onClick={()=>this.props.onDecreaseQuantity(this.props.product)}
                         />
 
                         <img 
