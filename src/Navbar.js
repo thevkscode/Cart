@@ -8,7 +8,7 @@ return(
             <img 
             style={styles.cartIcons}
             alt="cart" src='https://cdn-icons-png.flaticon.com/512/1170/1170678.png'/>
-            <span style={styles.cartCount}>3</span>
+            <span style={styles.cartCount}>{props.count}</span>
         </div>
     </div>
 );
